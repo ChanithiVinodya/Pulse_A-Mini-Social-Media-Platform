@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in — Pulse</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>💚</text></svg>">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-card">
+      <span class="logo">Pulse</span>
+      <h1>Welcome back</h1>
+      <p id="auth-error" class="auth-error"></p>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Log in</button>
+      </form>
+      <p class="auth-footer">
+        Don't have an account? <a href="register.html">Sign up</a>
+      </p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { redirectIfAuthenticated, handleLogin } from '../js/auth.js';
+    redirectIfAuthenticated();
+    document.getElementById('login-form').addEventListener('submit', handleLogin);
+  </script>
+</body>
+</html>
