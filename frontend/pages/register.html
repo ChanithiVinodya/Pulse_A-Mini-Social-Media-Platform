@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up — Pulse</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>💚</text></svg>">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-card">
+      <span class="logo">Pulse</span>
+      <h1>Create your account</h1>
+      <p id="auth-error" class="auth-error"></p>
+      <form id="register-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required autocomplete="username" pattern="[a-zA-Z0-9_]{3,30}">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required autocomplete="new-password" minlength="6">
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Sign up</button>
+      </form>
+      <p class="auth-footer">
+        Already have an account? <a href="login.html">Log in</a>
+      </p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { redirectIfAuthenticated, handleRegister } from '../js/auth.js';
+    redirectIfAuthenticated();
+    document.getElementById('register-form').addEventListener('submit', handleRegister);
+  </script>
+</body>
+</html>
