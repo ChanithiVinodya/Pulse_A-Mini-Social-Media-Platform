@@ -1,0 +1,15 @@
+{
+  "name": "pulse",
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "serve": "^14.2.0"
+  },
+  "scripts": {
+    "bootstrap": "npm install && npm --prefix backend install",
+    "backend": "npm --prefix backend run dev",
+    "frontend": "npx serve frontend -p 5500",
+    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "verify": "node -e \"const http = require('http'); const req = http.get('http://127.0.0.1:5000/', res => { console.log('Pulse backend status', res.statusCode); process.exit(res.statusCode === 200 ? 0 : 1); }); req.on('error', err => { console.error('Pulse backend error', err.message); process.exit(1); });\""
+  }
+}
