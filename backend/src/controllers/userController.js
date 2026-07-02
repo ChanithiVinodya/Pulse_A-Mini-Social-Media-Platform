@@ -3,6 +3,7 @@ const { validateProfileUpdate } = require('../utils/validators');
 const { serializeUser } = require('../utils/serializeUser');
 const { getPublicUrl } = require('../middleware/upload');
 const { AppError } = require('../middleware/errorHandler');
+const { formatPost } = require('./postController');
 
 const getProfile = async (req, res, next) => {
   try {
@@ -125,4 +126,61 @@ const getMe = async (req, res, next) => {
   }
 };
 
-module.exports = { getProfile, updateProfile, getMe };
+const searchUsers = async (req, res, next) => {
+  try {
+    const { q } = req.query;
+    if (!q) {
+      return res.json([]);
+    }
+
+    const users = await prisma.user.findMany({
+      where: {
+        username: { contains: q, mode: 'insensitive' },
+        NOT: { id: req.userId },
+      },
+      take: 10,
+      select: {
+        id: true,
+        username: true,
+        avatarUrl: true,
+        isVerified: true,
+      },
+    });
+
+    res.json(users);
+  } catch (err) {
+    next(err);
+  }
+};
+
+const getSavedPosts = async (req, res, next) => {
+  try {
+    const saved = await prisma.savedPost.findMany({
+      where: { userId: req.userId },
+      include: {
+        post: {
+          include: {
+            author: {
+              select: {
+                id: true,
+                username: true,
+                avatarUrl: true,
+                isVerified: true,
+              },
+            },
+            _count: { select: { likes: true, comments: true } },
+            likes: { where: { userId: req.userId }, select: { userId: true } },
+            savedBy: { where: { userId: req.userId }, select: { userId: true } },
+          },
+        },
+      },
+      orderBy: { createdAt: 'desc' },
+    });
+
+    res.json(saved.map((s) => formatPost(s.post, req.userId)));
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { getProfile, updateProfile, getMe, searchUsers, getSavedPosts };
