@@ -13,6 +13,9 @@ const formatPost = (post, userId) => ({
   likedByMe: userId && post.likes
     ? post.likes.some((like) => like.userId === userId)
     : false,
+  savedByMe: userId && post.savedBy
+    ? post.savedBy.some((save) => save.userId === userId)
+    : false,
 });
 
 const getFeed = async (req, res, next) => {
@@ -45,6 +48,7 @@ const getFeed = async (req, res, next) => {
           },
           _count: { select: { likes: true, comments: true } },
           likes: { where: { userId: req.userId }, select: { userId: true } },
+          savedBy: { where: { userId: req.userId }, select: { userId: true } },
         },
       }),
       prisma.post.count({ where: { authorId: { in: authorIds } } }),
@@ -82,6 +86,7 @@ const getPost = async (req, res, next) => {
 
     if (req.userId) {
       include.likes = { where: { userId: req.userId }, select: { userId: true } };
+      include.savedBy = { where: { userId: req.userId }, select: { userId: true } };
     }
 
     const post = await prisma.post.findUnique({
@@ -126,6 +131,7 @@ const createPost = async (req, res, next) => {
         },
         _count: { select: { likes: true, comments: true } },
         likes: { where: { userId: req.userId }, select: { userId: true } },
+        savedBy: { where: { userId: req.userId }, select: { userId: true } },
       },
     });
 
@@ -157,4 +163,34 @@ const deletePost = async (req, res, next) => {
   }
 };
 
-module.exports = { getFeed, getPost, createPost, deletePost };
+const toggleSave = async (req, res, next) => {
+  try {
+    const { id: postId } = req.params;
+
+    const existing = await prisma.savedPost.findUnique({
+      where: {
+        postId_userId: {
+          postId,
+          userId: req.userId,
+        },
+      },
+    });
+
+    if (existing) {
+      await prisma.savedPost.delete({ where: { id: existing.id } });
+    } else {
+      const post = await prisma.post.findUnique({ where: { id: postId } });
+      if (!post) throw new AppError('Post not found', 404);
+      
+      await prisma.savedPost.create({
+        data: { postId, userId: req.userId },
+      });
+    }
+
+    res.json({ saved: !existing });
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { getFeed, getPost, createPost, deletePost, toggleSave };
