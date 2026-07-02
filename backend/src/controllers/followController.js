@@ -41,4 +41,52 @@ const toggleFollow = async (req, res, next) => {
   }
 };
 
-module.exports = { toggleFollow };
+const getFollowers = async (req, res, next) => {
+  try {
+    const { id: userId } = req.params;
+    const follows = await prisma.follow.findMany({
+      where: { followingId: userId },
+      include: {
+        follower: {
+          select: {
+            id: true,
+            username: true,
+            avatarUrl: true,
+            isVerified: true,
+          },
+        },
+      },
+      orderBy: { createdAt: 'desc' },
+    });
+
+    res.json(follows.map((f) => f.follower));
+  } catch (err) {
+    next(err);
+  }
+};
+
+const getFollowing = async (req, res, next) => {
+  try {
+    const { id: userId } = req.params;
+    const follows = await prisma.follow.findMany({
+      where: { followerId: userId },
+      include: {
+        following: {
+          select: {
+            id: true,
+            username: true,
+            avatarUrl: true,
+            isVerified: true,
+          },
+        },
+      },
+      orderBy: { createdAt: 'desc' },
+    });
+
+    res.json(follows.map((f) => f.following));
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { toggleFollow, getFollowers, getFollowing };
