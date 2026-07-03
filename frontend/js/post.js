@@ -24,6 +24,13 @@ const initPost = async () => {
     postContainer.appendChild(
       createPostCard(post, {
         onLike: (id) => api.post(`/posts/${id}/like`, {}),
+        onSave: (id) => api.post(`/posts/${id}/save`, {}),
+        onDelete: post.author.id === getStoredUser()?.id 
+          ? async (id) => {
+              await api.delete(`/posts/${id}`);
+              window.location.href = 'feed.html';
+            } 
+          : null,
         compact: true,
       })
     );
