@@ -4,13 +4,13 @@ A production-quality mini social media web application. Share posts, stories, li
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|------------|
+| Layer    | Technology                                   |
+| -------- | -------------------------------------------- |
 | Frontend | HTML5, CSS3, Vanilla JavaScript (ES modules) |
-| Backend | Node.js, Express.js (MVC) |
-| Database | PostgreSQL (Neon) |
-| ORM | Prisma |
-| Auth | JWT + bcrypt |
+| Backend  | Node.js, Express.js (MVC)                    |
+| Database | PostgreSQL (Neon)                            |
+| ORM      | Prisma                                       |
+| Auth     | JWT + bcrypt                                 |
 
 ## Features
 
@@ -112,45 +112,45 @@ Authorization: Bearer <token>
 
 ### Authentication
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/auth/register` | Register `{ username, email, password }` |
-| POST | `/api/auth/login` | Login `{ email, password }` → `{ token, user }` |
-| POST | `/api/auth/logout` | Logout (client clears token) |
+| Method | Endpoint             | Description                                     |
+| ------ | -------------------- | ----------------------------------------------- |
+| POST   | `/api/auth/register` | Register `{ username, email, password }`        |
+| POST   | `/api/auth/login`    | Login `{ email, password }` → `{ token, user }` |
+| POST   | `/api/auth/logout`   | Logout (client clears token)                    |
 
 ### Users
 
-| Method | Endpoint | Auth | Description |
-|--------|----------|------|-------------|
-| GET | `/api/users/me` | Yes | Current user |
-| GET | `/api/users/:username` | Optional | User profile |
-| PUT | `/api/users/me` | Yes | Update profile (multipart for avatar) |
-| POST | `/api/users/:id/follow` | Yes | Toggle follow |
+| Method | Endpoint                | Auth     | Description                           |
+| ------ | ----------------------- | -------- | ------------------------------------- |
+| GET    | `/api/users/me`         | Yes      | Current user                          |
+| GET    | `/api/users/:username`  | Optional | User profile                          |
+| PUT    | `/api/users/me`         | Yes      | Update profile (multipart for avatar) |
+| POST   | `/api/users/:id/follow` | Yes      | Toggle follow                         |
 
 ### Posts
 
-| Method | Endpoint | Auth | Description |
-|--------|----------|------|-------------|
-| GET | `/api/posts?page=1&limit=10` | Yes | Personalized feed |
-| POST | `/api/posts` | Yes | Create post (multipart: `content`, `image`) |
-| GET | `/api/posts/:id` | Optional | Single post |
-| DELETE | `/api/posts/:id` | Yes | Delete own post |
-| POST | `/api/posts/:id/like` | Yes | Toggle like → `{ liked, count }` |
+| Method | Endpoint                     | Auth     | Description                                 |
+| ------ | ---------------------------- | -------- | ------------------------------------------- |
+| GET    | `/api/posts?page=1&limit=10` | Yes      | Personalized feed                           |
+| POST   | `/api/posts`                 | Yes      | Create post (multipart: `content`, `image`) |
+| GET    | `/api/posts/:id`             | Optional | Single post                                 |
+| DELETE | `/api/posts/:id`             | Yes      | Delete own post                             |
+| POST   | `/api/posts/:id/like`        | Yes      | Toggle like → `{ liked, count }`            |
 
 ### Comments
 
-| Method | Endpoint | Auth | Description |
-|--------|----------|------|-------------|
-| GET | `/api/posts/:id/comments` | No | List comments |
-| POST | `/api/posts/:id/comments` | Yes | Create comment |
-| DELETE | `/api/comments/:id` | Yes | Delete comment |
+| Method | Endpoint                  | Auth | Description    |
+| ------ | ------------------------- | ---- | -------------- |
+| GET    | `/api/posts/:id/comments` | No   | List comments  |
+| POST   | `/api/posts/:id/comments` | Yes  | Create comment |
+| DELETE | `/api/comments/:id`       | Yes  | Delete comment |
 
 ### Stories
 
-| Method | Endpoint | Auth | Description |
-|--------|----------|------|-------------|
-| GET | `/api/stories` | Yes | Active stories (24h) |
-| POST | `/api/stories` | Yes | Create story (multipart: `story`) |
+| Method | Endpoint       | Auth | Description                       |
+| ------ | -------------- | ---- | --------------------------------- |
+| GET    | `/api/stories` | Yes  | Active stories (24h)              |
+| POST   | `/api/stories` | Yes  | Create story (multipart: `story`) |
 
 ### Error Responses
 
@@ -158,13 +158,13 @@ Authorization: Bearer <token>
 { "error": "Human-readable message" }
 ```
 
-| Code | Meaning |
-|------|---------|
-| 400 | Validation error |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not found |
-| 409 | Conflict (duplicate) |
+| Code | Meaning              |
+| ---- | -------------------- |
+| 400  | Validation error     |
+| 401  | Unauthorized         |
+| 403  | Forbidden            |
+| 404  | Not found            |
+| 409  | Conflict (duplicate) |
 
 ## Uploads
 
@@ -181,13 +181,13 @@ The upload middleware in `src/middleware/upload.js` is structured so Cloudinary 
 
 ## Design System
 
-| Token | Value |
-|-------|-------|
+| Token      | Value     |
+| ---------- | --------- |
 | Background | `#121212` |
-| Cards | `#1E1E1E` |
-| Primary | `#22C55E` |
-| Secondary | `#A78BFA` |
-| Like | `#EF4444` |
+| Cards      | `#1E1E1E` |
+| Primary    | `#22C55E` |
+| Secondary  | `#A78BFA` |
+| Like       | `#EF4444` |
 
 ## Responsive Breakpoints
 
