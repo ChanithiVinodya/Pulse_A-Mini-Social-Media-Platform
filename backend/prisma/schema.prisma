@@ -25,6 +25,20 @@ model User {
   followers Follow[] @relation("Following")
   following Follow[] @relation("Follower")
   savedPosts SavedPost[]
+  sentMessages     Message[] @relation("SentMessages")
+  receivedMessages Message[] @relation("ReceivedMessages")
+}
+
+model Message {
+  id         String   @id @default(cuid())
+  content    String
+  senderId   String
+  receiverId String
+  createdAt  DateTime @default(now())
+  isRead     Boolean  @default(false)
+
+  sender   User @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver User @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
 }
 
 model Post {
