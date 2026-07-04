@@ -9,6 +9,7 @@ const postRoutes = require("./routes/postRoutes");
 const commentRoutes = require("./routes/commentRoutes");
 const followRoutes = require("./routes/followRoutes");
 const storyRoutes = require("./routes/storyRoutes");
+const messageRoutes = require("./routes/messageRoutes");
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use("/api/posts", postRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/users", followRoutes);
 app.use("/api/stories", storyRoutes);
+app.use("/api/messages", messageRoutes);
 
 app.use(errorHandler);
 
