@@ -148,6 +148,9 @@ const setupProfileActions = (profile) => {
       <button class="btn btn-outline" id="message-btn">Message</button>
     `;
     document.getElementById('follow-btn').addEventListener('click', () => toggleFollow(profile));
+    document.getElementById('message-btn').addEventListener('click', () => {
+      window.location.href = `messages.html?userId=${profile.id}`;
+    });
   }
 };
 
