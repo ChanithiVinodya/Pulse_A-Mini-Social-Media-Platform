@@ -183,4 +183,27 @@ const getSavedPosts = async (req, res, next) => {
   }
 };
 
-module.exports = { getProfile, updateProfile, getMe, searchUsers, getSavedPosts };
+const getProfileById = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const user = await prisma.user.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        username: true,
+        avatarUrl: true,
+        isVerified: true,
+      },
+    });
+
+    if (!user) {
+      throw new AppError('User not found', 404);
+    }
+
+    res.json(user);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { getProfile, updateProfile, getMe, searchUsers, getSavedPosts, getProfileById };
