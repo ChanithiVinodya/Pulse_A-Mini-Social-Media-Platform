@@ -1,4 +1,4 @@
-const prisma = require("../prisma");
+const prisma = require("../prisma/client");
 
 // Send a message
 exports.sendMessage = async (req, res, next) => {
