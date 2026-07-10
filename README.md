@@ -25,9 +25,6 @@
      Gyroflow to capture a 3-screen composite like the mockup.
      ============================================================ -->
 
-![Pulse — Hero Screenshot](./docs/screenshots/hero-banner.png)
-*Pulse running in a desktop browser (dark theme, responsive feed)*
-
 </div>
 
 ---
@@ -85,152 +82,68 @@ The goal was to go beyond a generic CRUD demo: Pulse has a distinct dark-theme v
 
 ## 🖼️ Screenshots
 
-### Onboarding & Authentication
+### 🚀 Home Feed
 
-<!-- ============================================================
-     ONBOARDING SCREENSHOT
-     Capture: the landing/register page on mobile viewport
-     (375px wide). Show the avatar collage, headline, and
-     "Get Started" button. Suggested dimensions: 390×844px.
-     Save as: docs/screenshots/01-onboarding.png
-     ============================================================ -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5b16cb3c-894a-4f40-a7e3-655cc10c8603" width="95%" alt="Home Feed">
+</p>
 
-<div align="center">
-<img src="./docs/screenshots/01-onboarding.png" alt="Onboarding screen" width="320" />
-&nbsp;&nbsp;&nbsp;&nbsp;
-<!-- ============================================================
-     LOGIN SCREENSHOT
-     Capture: the sign-in page / login form.
-     Save as: docs/screenshots/02-login.png
-     ============================================================ -->
-<img src="./docs/screenshots/02-login.png" alt="Login screen" width="320" />
-</div>
-<p align="center"><em>Left: Onboarding · Right: Sign In</em></p>
+<p align="center"><em>Desktop Home Feed with Stories and Sidebar Navigation</em></p>
 
 ---
 
-### Home Feed & Stories
+### 🔐 Authentication
 
-<!-- ============================================================
-     FEED SCREENSHOT (MOBILE)
-     Capture: the home feed on a ~390px wide viewport.
-     Should show: top nav bar with avatar + greeting, the
-     Stories rail with at least 3 circles, and 2 post cards
-     (one with an image). Suggested dimensions: 390×844px.
-     Save as: docs/screenshots/03-feed-mobile.png
-     ============================================================ -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/46879389-9419-46ac-9e2e-f934170a3b51" width="48%" alt="Onboarding">
+  <img src="https://github.com/user-attachments/assets/fa1016ec-adfa-404c-abfa-68b6bfce319c" width="48%" alt="Sign In">
+</p>
 
-<div align="center">
-<img src="./docs/screenshots/03-feed-mobile.png" alt="Home feed on mobile" width="320" />
-&nbsp;&nbsp;&nbsp;&nbsp;
-<!-- ============================================================
-     FEED SCREENSHOT (DESKTOP)
-     Capture: the same feed at ~1280px wide.
-     Should show: left sidebar nav, centered feed column,
-     stories rail at top of feed. Save as:
-     docs/screenshots/04-feed-desktop.png
-     ============================================================ -->
-<img src="./docs/screenshots/04-feed-desktop.png" alt="Home feed on desktop" width="560" />
-</div>
-<p align="center"><em>Left: Mobile feed · Right: Desktop layout with sidebar</em></p>
+<p align="center"><em>Onboarding • Sign In</em></p>
 
 ---
 
-### Posts & Comments
+### 📝 Posts & Comments
 
-<!-- ============================================================
-     POST DETAIL SCREENSHOT
-     Capture: a single post expanded, showing the full image,
-     like/comment/share action row, like count, and at least
-     2-3 comments below. Suggested width: 390px (mobile).
-     Save as: docs/screenshots/05-post-detail.png
-     ============================================================ -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/deacc8aa-f6f0-4b76-9624-b2fbe000849b" width="31%" alt="Post Detail">
+  <img src="https://github.com/user-attachments/assets/f5676a00-25bd-4e0e-ac01-25ae12a8a09e" width="31%" alt="Create Post">
+</p>
 
-<div align="center">
-<img src="./docs/screenshots/05-post-detail.png" alt="Post detail with comments" width="320" />
-&nbsp;&nbsp;&nbsp;&nbsp;
-<!-- ============================================================
-     CREATE POST SCREENSHOT
-     Capture: the new-post modal/page with the image upload
-     area and caption input visible.
-     Save as: docs/screenshots/06-create-post.png
-     ============================================================ -->
-<img src="./docs/screenshots/06-create-post.png" alt="Create a new post" width="320" />
-</div>
-<p align="center"><em>Left: Post detail with comments · Right: Creating a new post</em></p>
+<p align="center"><em>Post Details • Create New Post</em></p>
 
 ---
 
-### Likes & Follow System
+### ❤️ Likes & Follow System
 
-<!-- ============================================================
-     LIKE SCREENSHOT
-     Capture two states side by side (or as a GIF):
-       State A: heart icon outlined, count = N
-       State B: heart icon filled red, count = N+1
-     A GIF showing the toggle animation is even better here.
-     Save as: docs/screenshots/07-like-toggle.gif (or .png)
-     ============================================================ -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/838302b1-f0a8-47e5-a144-3d2051ad0abb" width="31%" alt="Likes">
+  <img src="https://github.com/user-attachments/assets/b6b65bb8-f9cf-4637-aada-0d1adcc350e0" width="31%" alt="Follow System">
+</p>
 
-<div align="center">
-<img src="./docs/screenshots/07-like-toggle.gif" alt="Like toggle animation" width="320" />
-&nbsp;&nbsp;&nbsp;&nbsp;
-<!-- ============================================================
-     FOLLOW BUTTON SCREENSHOT
-     Capture: a user profile page showing the Follow button
-     (unfollow state if possible, to show it works).
-     Optionally show the follower count update.
-     Save as: docs/screenshots/08-follow-system.png
-     ============================================================ -->
-<img src="./docs/screenshots/08-follow-system.png" alt="Follow system on profile" width="320" />
-</div>
-<p align="center"><em>Left: Like toggle (optimistic UI) · Right: Follow / Unfollow on a profile</em></p>
+<p align="center"><em>Like Posts • Follow & Unfollow Users</em></p>
 
 ---
 
-### User Profiles
+### 👤 User Profiles
 
-<!-- ============================================================
-     PROFILE SCREENSHOT — OWN PROFILE
-     Capture: your own profile page showing avatar, name,
-     @handle, verified badge, the three stat counters
-     (Following / Followers / Likes), the tab bar
-     (Posts / Tags / Private / Saved), and the post grid
-     with at least 4 images.
-     Save as: docs/screenshots/09-profile-own.png
-     ============================================================ -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/fe3cfd76-f612-4da3-acf3-92aed03faf4a" width="48%" alt="Own Profile">
+   <img src="https://github.com/user-attachments/assets/b677f0f2-3d57-493d-9e9d-5357fbdf48fe" width="48%" alt="Other Profile">
+</p>
 
-<div align="center">
-<img src="./docs/screenshots/09-profile-own.png" alt="Own user profile" width="320" />
-&nbsp;&nbsp;&nbsp;&nbsp;
-<!-- ============================================================
-     PROFILE SCREENSHOT — OTHER USER
-     Capture: visiting another user's profile where the
-     button shows "Follow" (not "Edit Profile").
-     Save as: docs/screenshots/10-profile-other.png
-     ============================================================ -->
-<img src="./docs/screenshots/10-profile-other.png" alt="Visiting another user's profile" width="320" />
-</div>
-<p align="center"><em>Left: Your own profile (edit mode) · Right: Another user's profile (follow mode)</em></p>
+<p align="center"><em>Your Profile • Another User's Profile</em></p>
 
 ---
 
-### Stories
+### 📖 Stories
 
-<!-- ============================================================
-     STORIES SCREENSHOT
-     Capture: the Stories rail with 3+ circles (at least one
-     with an accent-color ring = unseen, one muted = seen),
-     plus a full-screen story view overlaid.
-     Save as: docs/screenshots/11-stories.png
-     ============================================================ -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a24277a4-ff1c-4770-87ac-5f017c2ddd81" width="31%" alt="Stories Rail">
+  <img src="https://github.com/user-attachments/assets/96238662-dd1c-425e-83c2-6fd40d81bc01" width="31%" alt="Story Viewer">
+</p>
 
-<div align="center">
-<img src="./docs/screenshots/11-stories.png" alt="Stories rail and full-screen story view" width="680" />
-</div>
-<p align="center"><em>Stories rail (unseen = green ring) and full-screen story viewer</em></p>
-
----
+<p align="center"><em>Stories Rail • Full-Screen Story Viewer</em></p>
 
 ## 🏗️ Architecture
 
