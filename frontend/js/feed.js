@@ -36,6 +36,8 @@ const setupNav = () => {
   }
 
   document.getElementById('logout-btn')?.addEventListener('click', logout);
+  document.getElementById('sidebar-logout-btn')?.addEventListener('click', logout);
+
 };
 
 const loadStories = async () => {
@@ -46,7 +48,7 @@ const loadStories = async () => {
     const data = await api.get('/stories');
     renderStories(container, data.storyGroups, getStoredUser(), () => {
       document.getElementById('story-input')?.click();
-    });
+    }, loadStories);
   } catch (err) {
     console.error('Failed to load stories:', err.message);
   }

@@ -15,6 +15,9 @@ const initProfile = async () => {
   setupSearch();
 
   document.getElementById('logout-btn')?.addEventListener('click', logout);
+  document.getElementById('sidebar-logout-btn')?.addEventListener('click', logout);
+  document.getElementById('bottom-logout-btn')?.addEventListener('click', logout);
+
 
   try {
     const profile = await api.get(`/users/${username}`);
