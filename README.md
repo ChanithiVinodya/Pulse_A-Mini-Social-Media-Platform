@@ -17,6 +17,8 @@
 [![Neon](https://img.shields.io/badge/Neon-Database-00E599?style=flat-square&logo=neon&logoColor=black)](https://neon.tech/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
+<br />
+
 <!-- ============================================================
      HERO SCREENSHOT
      Replace the placeholder below with a full-width screenshot
@@ -25,7 +27,13 @@
      Gyroflow to capture a 3-screen composite like the mockup.
      ============================================================ -->
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5b16cb3c-894a-4f40-a7e3-655cc10c8603" width="95%" alt="Home Feed">
+</p>
+Pulse running in a desktop browser (dark theme, responsive feed)
+
 </div>
+
 
 ---
 
@@ -81,16 +89,6 @@ The goal was to go beyond a generic CRUD demo: Pulse has a distinct dark-theme v
 ---
 
 ## 🖼️ Screenshots
-
-### 🚀 Home Feed
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/5b16cb3c-894a-4f40-a7e3-655cc10c8603" width="95%" alt="Home Feed">
-</p>
-
-<p align="center"><em>Desktop Home Feed with Stories and Sidebar Navigation</em></p>
-
----
 
 ### 🔐 Authentication
 
