@@ -94,4 +94,30 @@ const createStory = async (req, res, next) => {
   }
 };
 
-module.exports = { getStories, createStory };
+const deleteStory = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const story = await prisma.story.findUnique({
+      where: { id },
+    });
+
+    if (!story) {
+      throw new AppError('Story not found', 404);
+    }
+
+    if (story.authorId !== req.userId) {
+      throw new AppError('Unauthorized to delete this story', 403);
+    }
+
+    await prisma.story.delete({
+      where: { id },
+    });
+
+    res.json({ message: 'Story deleted successfully' });
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { getStories, createStory, deleteStory };
+
